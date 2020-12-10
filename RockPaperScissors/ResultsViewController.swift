@@ -14,11 +14,11 @@ class ResultsViewController: UIViewController {
     
     //TODO: Set up an outlet for the label
     
+    @IBOutlet weak var resultPrompt: UILabel!
     @IBOutlet weak var resultImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let randomOption = GameOption.init()
         
         switch randomOption {
@@ -31,6 +31,18 @@ class ResultsViewController: UIViewController {
         }
         
         //TODO: Depending on the result, show the legend "You won", "You lost", "It's a tie" in the label
-
+        resultPrompt.text = "\(randomOption)"
+        
+        if userSelection.unsafelyUnwrapped == randomOption.weakness {
+            resultPrompt.text = "You win!"
+        }
+        else if userSelection.weakness == randomOption {
+            resultPrompt.text = "You lose!"
+        }
+        else {
+            resultPrompt.text = "It's a draw!"
+        }
+    
     }
+    
 }

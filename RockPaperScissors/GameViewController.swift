@@ -9,6 +9,8 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    @IBAction func unwindToSelection(unwindSegue: UIStoryboardSegue) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,10 @@ class GameViewController: UIViewController {
         switch segue.identifier {
         case "rockSelected":
             vc?.userSelection = GameOption.rock
+        case "paperSelected":
+            vc?.userSelection = GameOption.paper
+        case "scissorsSelected":
+            vc?.userSelection = GameOption.scissors
         default:
             break
         }
